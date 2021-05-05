@@ -13,7 +13,7 @@ function App() {
     
     fetch("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyDSfx3ahDlVHxgqIqQVUgRJ3W1dPZQk08s", requestOptions)
       .then(response => response.json())
-      .then(result => console.log(result))
+      .then(result => setVideos(result.items))
       .catch(error => console.log('error', error));
   },[videos]);
 
