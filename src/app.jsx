@@ -19,6 +19,10 @@ function App({youtube}) {
     .then(videos => setVideos(videos));
   }
 
+  const clickToMain = reset => {
+    setSelectedVideo(reset);
+  }
+
   useEffect(() => {
     youtube.mostPopular()
     .then(videos => setVideos(videos));
@@ -27,7 +31,7 @@ function App({youtube}) {
 
   return(
     <div className={styles.app}>
-    <Nav_bar onSearch={search} />
+    <Nav_bar onSearch={search} clickToMain={clickToMain}/>
     <section className={styles.content}>
     {selectedVideo && (
     <div className={styles.detail}>

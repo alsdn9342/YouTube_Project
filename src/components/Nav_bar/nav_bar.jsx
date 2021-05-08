@@ -2,7 +2,7 @@ import React, { Component, useRef } from 'react';
 import styles from './nav_bar.module.css'
 
 
-const Nav_bar = ({onSearch}) => {
+const Nav_bar = ({onSearch, clickToMain}) => {
     const inputRef = useRef();
     const handleSearch = () => {
        const value = inputRef.current.value;
@@ -19,9 +19,13 @@ const Nav_bar = ({onSearch}) => {
         }
     };
 
+    const goBackToMain = () =>{
+        clickToMain(null);
+    }
+
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>
+            <div className={styles.logo} onClick={goBackToMain} >
             <img className={styles.img} src="/images/logo.png" alt="logo" />
             <h1 className={styles.title}>YouTube</h1>
             </div>
