@@ -6,6 +6,7 @@ const Nav_bar = ({onSearch, clickToMain}) => {
     const inputRef = useRef();
     const handleSearch = () => {
        const value = inputRef.current.value;
+       clickToMain(null);
        onSearch(value);
     };
 
