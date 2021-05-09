@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './app.module.css';
 import Nav_bar from './components/Nav_bar/nav_bar';
 import VideoList from './components/video_list/video_list';
@@ -13,12 +13,13 @@ function App({youtube}) {
     setSelectedVideo(video);
   }
   
-  const search = query => {
+
+  const search = useCallback(query => {
     youtube
     .search(query)
     .then(videos => setVideos(videos));
-  }
-
+  },[]);
+  
   const clickToMain = reset => {
     setSelectedVideo(reset);
   }
@@ -26,7 +27,7 @@ function App({youtube}) {
   useEffect(() => {
     youtube.mostPopular()
     .then(videos => setVideos(videos));
-  }, []);
+  }, [youtube]);
 
 
   return(
