@@ -2,4 +2,8 @@
 
 ## Desciption
 
-By using YouTube APIs, it dynamically reteives the most popular vidoes and functions to search videos.
+```python
+By using YouTube APIs, it dynamically retrieves the most popular vidoes and functions to search videos.
+```
+
+[View a demo](https://alsdn9342.github.io/YouTube_Project/)
