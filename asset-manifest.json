@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/YouTube-Project/static/css/main.c300dbc5.chunk.css",
-    "main.js": "/YouTube-Project/static/js/main.d4d049c6.chunk.js",
-    "main.js.map": "/YouTube-Project/static/js/main.d4d049c6.chunk.js.map",
-    "runtime-main.js": "/YouTube-Project/static/js/runtime-main.36694eed.js",
-    "runtime-main.js.map": "/YouTube-Project/static/js/runtime-main.36694eed.js.map",
-    "static/js/2.2cd92237.chunk.js": "/YouTube-Project/static/js/2.2cd92237.chunk.js",
-    "static/js/2.2cd92237.chunk.js.map": "/YouTube-Project/static/js/2.2cd92237.chunk.js.map",
-    "static/js/3.996dd802.chunk.js": "/YouTube-Project/static/js/3.996dd802.chunk.js",
-    "static/js/3.996dd802.chunk.js.map": "/YouTube-Project/static/js/3.996dd802.chunk.js.map",
-    "index.html": "/YouTube-Project/index.html",
-    "static/css/main.c300dbc5.chunk.css.map": "/YouTube-Project/static/css/main.c300dbc5.chunk.css.map",
-    "static/js/2.2cd92237.chunk.js.LICENSE.txt": "/YouTube-Project/static/js/2.2cd92237.chunk.js.LICENSE.txt"
+    "main.css": "/YouTube_Project/static/css/main.c300dbc5.chunk.css",
+    "main.js": "/YouTube_Project/static/js/main.d4d049c6.chunk.js",
+    "main.js.map": "/YouTube_Project/static/js/main.d4d049c6.chunk.js.map",
+    "runtime-main.js": "/YouTube_Project/static/js/runtime-main.a929e129.js",
+    "runtime-main.js.map": "/YouTube_Project/static/js/runtime-main.a929e129.js.map",
+    "static/js/2.2cd92237.chunk.js": "/YouTube_Project/static/js/2.2cd92237.chunk.js",
+    "static/js/2.2cd92237.chunk.js.map": "/YouTube_Project/static/js/2.2cd92237.chunk.js.map",
+    "static/js/3.996dd802.chunk.js": "/YouTube_Project/static/js/3.996dd802.chunk.js",
+    "static/js/3.996dd802.chunk.js.map": "/YouTube_Project/static/js/3.996dd802.chunk.js.map",
+    "index.html": "/YouTube_Project/index.html",
+    "static/css/main.c300dbc5.chunk.css.map": "/YouTube_Project/static/css/main.c300dbc5.chunk.css.map",
+    "static/js/2.2cd92237.chunk.js.LICENSE.txt": "/YouTube_Project/static/js/2.2cd92237.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.36694eed.js",
+    "static/js/runtime-main.a929e129.js",
     "static/js/2.2cd92237.chunk.js",
     "static/css/main.c300dbc5.chunk.css",
     "static/js/main.d4d049c6.chunk.js"
