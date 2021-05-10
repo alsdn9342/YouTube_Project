@@ -1,5 +1,7 @@
-import React, { Component, memo, useRef } from 'react';
+import React, { memo, useRef} from 'react';
 import styles from './nav_bar.module.css'
+import logo from '../../images/logo.png'
+import search from '../../images/search.png'
 
 
 const Nav_bar = memo(({onSearch, clickToMain}) => {
@@ -27,12 +29,12 @@ const Nav_bar = memo(({onSearch, clickToMain}) => {
     return (
         <header className={styles.header}>
             <div className={styles.logo} onClick={goBackToMain} >
-            <img className={styles.img} src="/images/logo.png" alt="logo" />
+            <img className={styles.img}  src={logo} alt="logo" />
             <h1 className={styles.title}>YouTube</h1>
             </div>
             <input ref={inputRef} className={styles.input} type="search" placeholder ="Search" onKeyPress={onKeyPress} />
             <button className={styles.button} onClick={onClick}>
-                <img className={styles.buttonImage} src="/images/search.png" alt="search" />
+                <img className={styles.buttonImage} src={search} alt="search" />
             </button>
         </header>
     )
