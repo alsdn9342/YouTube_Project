@@ -13,6 +13,7 @@ const VideoItem = memo (({video, video:{snippet}, onVideoClick, display}) =>{
         alt="video thumbnail"
         onClick={() => onVideoClick(video)}
       />
+      
       <div className={styles.metadata}>
         <p className={styles.title}>{snippet.title}</p>
         <p className={styles.channel}>{snippet.channelTitle}</p>

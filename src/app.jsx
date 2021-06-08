@@ -31,16 +31,16 @@ function App({youtube}) {
 
 
   return(
-    <div className={styles.app}>
-    <Nav_bar onSearch={search} clickToMain={clickToMain}/>
-    <section className={styles.content}>
+    <div className = {styles.app}>
+    <Nav_bar onSearch= {search} clickToMain = {clickToMain} />
+    <section className = {styles.content}>
     {selectedVideo && (
     <div className={styles.detail}>
      <Video_detail video={selectedVideo} />
     </div>
     )}
     <div className={styles.list}>
-    <VideoList videos={videos} onVideoClick ={selectVideo} display={selectedVideo ? 'list':'grid'} />
+    <VideoList videos={videos} onVideoClick = {selectVideo} display={selectedVideo ? 'list':'grid'} />
     </div>
     </section>
     </div>
