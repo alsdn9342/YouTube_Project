@@ -1,4 +1,4 @@
-@value makerGreen, makerLightPink, makerWhite from '../../common/colors.css';
+@value makerBlack, makerGreen, makerLightPink, makerWhite from '../../common/colors.css';
 
 .login {
   width: 30em;
@@ -7,6 +7,10 @@
   flex-direction: column;
   justify-content: center;
   background-color: makerWhite;
+}
+
+.mainBody {
+  border: solid makerBlack;
 }
 
 .list {

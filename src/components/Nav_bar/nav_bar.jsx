@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
     const history = useHistory();
     const inputRef = useRef();
+    
     const handleSearch = () => {
        const value = inputRef.current.value;
        clickToMain(null);
@@ -32,6 +33,7 @@ const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
         authService.logout();
     };
 
+    //Alway re-render whenever any component is changed and it goes back to signin page.
     useEffect(() => {
         authService.onAuthChange(user => {
             if(!user) {

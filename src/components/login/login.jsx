@@ -28,8 +28,8 @@ const Login = ({authService}) => {
     });
     return (
         <section className={styles.login}>
-        <h1>Header!</h1>
-        <section>
+        <Header />
+        <section className={styles.mainBody}>
             <h1>Login</h1>
             <ul className={styles.list}>
                 <li className={styles.item}>
@@ -40,7 +40,7 @@ const Login = ({authService}) => {
                 </li>
             </ul>
         </section>
-        <h2>Footer!</h2>
+        <Footer />
     </section>
     );
 };
