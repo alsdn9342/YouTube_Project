@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
     const history = useHistory();
     const inputRef = useRef();
-    
+
     const handleSearch = () => {
        const value = inputRef.current.value;
        clickToMain(null);
@@ -52,7 +52,7 @@ const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
             <button className={styles.button} onClick={onClick}>
                 <img className={styles.buttonImage} src={search} alt="search" />
             </button>
-            <button onClick={() => {logout()}}>Logout</button>
+            <button className={styles.logout} onClick={() => {logout()}}>Logout</button>
         </header>
     )
 });
