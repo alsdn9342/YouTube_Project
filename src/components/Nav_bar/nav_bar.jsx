@@ -1,10 +1,12 @@
-import React, { memo, useRef} from 'react';
+import React, { memo, useEffect, useRef} from 'react';
 import styles from './nav_bar.module.css'
 import logo from '../../images/logo.png'
 import search from '../../images/search.png'
+import { useHistory } from 'react-router-dom';
 
 
 const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
+    const history = useHistory();
     const inputRef = useRef();
     const handleSearch = () => {
        const value = inputRef.current.value;
@@ -26,6 +28,18 @@ const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
         clickToMain(null);
     }
 
+    const logout = () => {
+        authService.logout();
+    };
+
+    useEffect(() => {
+        authService.onAuthChange(user => {
+            if(!user) {
+               history.push('/YouTube_Project');
+            }
+        });
+    })
+
     return (
         <header className={styles.header}>
             <div className={styles.logo} onClick={goBackToMain} >
@@ -36,7 +50,7 @@ const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
             <button className={styles.button} onClick={onClick}>
                 <img className={styles.buttonImage} src={search} alt="search" />
             </button>
-            <button>Logout</button>
+            <button onClick={() => {logout()}}>Logout</button>
         </header>
     )
 });

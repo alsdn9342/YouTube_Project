@@ -7,7 +7,7 @@ import styles from './login.module.css'
 const Login = ({authService}) => {
     const history = useHistory();
 
-    const goToMaker = userId => {
+    const goToYoutube = userId => {
         history.push({
             pathname:'/youtube',
             state: { id: userId} // insert uid for each login method, Google and Github.
@@ -17,12 +17,12 @@ const Login = ({authService}) => {
     const onLogin = event => {
        authService
        .login(event.currentTarget.textContent)
-       .then(data => goToMaker(data.user.uid)); 
+       .then(data => goToYoutube(data.user.uid)); 
     };
 
     useEffect(() => {
         authService.onAuthChange(user => {
-            user && goToMaker(user.uid);
+            user && goToYoutube(user.uid);
         })
 
     });
