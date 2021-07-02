@@ -4,7 +4,7 @@ import logo from '../../images/logo.png'
 import search from '../../images/search.png'
 
 
-const Nav_bar = memo(({onSearch, clickToMain}) => {
+const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
     const inputRef = useRef();
     const handleSearch = () => {
        const value = inputRef.current.value;
@@ -36,6 +36,7 @@ const Nav_bar = memo(({onSearch, clickToMain}) => {
             <button className={styles.button} onClick={onClick}>
                 <img className={styles.buttonImage} src={search} alt="search" />
             </button>
+            <button>Logout</button>
         </header>
     )
 });

@@ -20,7 +20,7 @@ class Youtube{
     async search(query) {
         const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxresults=25&q=${query}&type=video&key=${this.key}`, this.getRequestOptions);
         const result_1 = await response.json();
-        const items = result_1.items.map(item => ({ ...item, id: item.id.videoId }));
+        const items = result_1.items.map(item => ({ ...item, id: item.id.videoId })); //Add id: item.id.videoId on the each original item.
         return items;
     }
 }

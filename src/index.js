@@ -4,11 +4,13 @@ import './index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 import Youtube from './service/youtube';
+import AuthService from './service/auth_service';
 
+const authService = new AuthService();
 const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY);
 ReactDOM.render(
   <React.StrictMode>
-    <App youtube={youtube}/>
+    <App youtube={youtube} authService={authService}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
