@@ -27,6 +27,7 @@ const Nav_bar = memo(({onSearch, clickToMain, authService}) => {
 
     const goBackToMain = () =>{
         clickToMain(null);
+        history.push('/youtube');
     }
 
     const logout = () => {

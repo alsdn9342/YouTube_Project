@@ -59,7 +59,15 @@ function App({youtube, authService}) {
          </section>
          </Route>
          <Route exact path="/history">
-          <History  onSearch= {search} clickToMain = {clickToMain} authService = {authService} />
+         <Nav_bar onSearch= {search} clickToMain = {clickToMain} authService = {authService} />
+         <section className = {styles.content}>
+         <div>
+             <SideNav clickToMain = {clickToMain}/>
+           </div>
+           <div>
+            <History />
+           </div>
+         </section>
          </Route>
        </Switch>
       </BrowserRouter> 

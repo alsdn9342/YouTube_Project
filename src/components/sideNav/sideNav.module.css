@@ -1,0 +1,26 @@
+.btns {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.btns:hover {
+  transform: scale(1.1);
+  transition: all 300ms ease-in-out;
+}
+
+.homeImg,
+.libImg,
+.likeImg {
+  width: 2em;
+  margin: 1em 0 0 1em;
+}
+
+.home,
+.lib,
+.like {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  margin: 14px 0 0 6px;
+}

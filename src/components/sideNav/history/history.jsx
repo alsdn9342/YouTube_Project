@@ -5,8 +5,6 @@ import SideNav from '../sideNav';
 const History = ({onSearch, clickToMain, authService}) => {
     return (
         <>
-        <Nav_bar onSearch= {onSearch} clickToMain = {clickToMain} authService = {authService} />
-        <SideNav clickToMain = {clickToMain}/>
          History!   
         </>
     );
