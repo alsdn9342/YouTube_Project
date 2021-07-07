@@ -7,6 +7,7 @@ import styles from './app.module.css';
 import Video_detail from './components/video_detail/video_detail';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
+import History from './components/sideNav/history/history';
 
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
@@ -57,9 +58,11 @@ function App({youtube, authService}) {
            </div>
          </section>
          </Route>
+         <Route exact path="/history">
+          <History  onSearch= {search} clickToMain = {clickToMain} authService = {authService} />
+         </Route>
        </Switch>
-      </BrowserRouter>
-    
+      </BrowserRouter> 
     </div>
   );
 }

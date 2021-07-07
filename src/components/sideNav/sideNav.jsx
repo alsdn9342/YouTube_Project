@@ -7,6 +7,10 @@ const SideNav = ({clickToMain}) => {
     const goToHome = () => {
         clickToMain(null);
     };
+
+    const goToHistory = () => {
+        history.push('/history');
+    }
     
     return (
         <section>
@@ -14,7 +18,7 @@ const SideNav = ({clickToMain}) => {
                <button onClick={() => {goToHome()}} >Home</button>
             </div>
             <div>
-               <button>History</button> 
+               <button onClick={() => {goToHistory()}}>History</button> 
             </div>
             <div>
                <button>MyFavorite</button> 
