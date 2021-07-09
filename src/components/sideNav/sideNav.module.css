@@ -1,10 +1,10 @@
 .btns {
   display: flex;
   flex-direction: row;
-  cursor: pointer;
 }
 
 .btns:hover {
+  cursor: pointer;
   transform: scale(1.1);
   transition: all 300ms ease-in-out;
 }
@@ -13,7 +13,7 @@
 .libImg,
 .likeImg {
   width: 2em;
-  margin: 1em 0 0 1em;
+  margin: 1em 0 0 10px;
 }
 
 .home,
@@ -22,5 +22,6 @@
   display: flex;
   align-items: center;
   font-weight: bolder;
-  margin: 14px 0 0 6px;
+  font-size: small;
+  margin: 14px 0 0 2px;
 }

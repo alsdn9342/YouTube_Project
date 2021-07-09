@@ -1,5 +1,6 @@
 .container {
   padding: 0.2em;
+  width: 30%;
 }
 
 .container.grid {
