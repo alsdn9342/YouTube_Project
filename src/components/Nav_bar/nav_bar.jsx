@@ -125,16 +125,16 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-  const Nav_bar = ({onSearch, clickToMain, authService, sideNav, clickSideNav}) => {
+  const Nav_bar = ({onSearch, clickToMain, authService, sideNav, clickSideNav, resetVideos}) => {
 
         const history = useHistory();
         const inputRef = useRef();
     
         const handleSearch = () => {
            const value = inputRef.current.value;
-           console.log(value);
            clickToMain(null);
            onSearch(value);
+           inputRef.current.value = '';
         };
     
         const onClick = () => {
@@ -143,12 +143,15 @@ const useStyles = makeStyles((theme) => ({
     
         const onKeyPress = (event) => {
             if(event.key === 'Enter'){
-                handleSearch();
+              history.push('/youtube');  
+              handleSearch();
             }
         };
     
         const goBackToMain = () =>{
             clickToMain(null);
+            inputRef.current.value = '';
+            resetVideos();
             history.push('/youtube');
         }
 
@@ -189,7 +192,7 @@ const useStyles = makeStyles((theme) => ({
             </Typography>
             <div className={classes.search}>
               <input
-                ref={inputRef} //not working...
+                ref={inputRef} 
                 onKeyPress={onKeyPress}
                 placeholder="Search…"
                 classes={classes.inputInput}

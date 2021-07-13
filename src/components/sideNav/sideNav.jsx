@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SideNav = ({clickToMain}) => {
+const SideNav = ({clickToMain, resetVideos}) => {
   
   const history = useHistory();
   const classes = useStyles();
@@ -92,6 +92,7 @@ const SideNav = ({clickToMain}) => {
   
   const goToHome = () => {
             clickToMain(null);
+            resetVideos();
             history.push('/youtube');
         };
     

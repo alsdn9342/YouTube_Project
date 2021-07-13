@@ -13,17 +13,22 @@ function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [sideNav, setSideNav] = useState(Boolean);
-  
+
   const selectVideo = (video) => {
     setSelectedVideo(video);
   }
-  
 
   const search = useCallback(query => {
+    console.log(query);
     youtube
     .search(query)
     .then(videos => setVideos(videos));
   },[]);
+
+  const resetVideos = () => {
+    youtube.mostPopular()
+    .then(videos => setVideos(videos));
+  }
   
   const clickToMain = reset => {
     setSelectedVideo(reset);
@@ -47,9 +52,9 @@ function App({youtube, authService}) {
            <Login authService = {authService} />
          </Route>
          <Route path="/youtube">
-         <Nav_bar onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}}/>
+         <Nav_bar  resetVideos={resetVideos} onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}}/>
          <section className = {styles.content}>
-         {sideNav === true && <SideNav clickToMain = {clickToMain} />}
+         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} />}
           {selectedVideo && (
             <div className={styles.detail}>
               <Video_detail video={selectedVideo} />
@@ -63,7 +68,7 @@ function App({youtube, authService}) {
          <Route exact path="/history">
          <Nav_bar onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}} />
          <section className = {styles.content}>
-         {sideNav === true && <SideNav clickToMain = {clickToMain} />}
+         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} />}
            <div >
             <History />
            </div>
