@@ -55,8 +55,6 @@ const useStyles = makeStyles((theme) => ({
     setExpanded(!expanded);
   };
 
-  console.log({video});
-
   return (
     <Card className={classes.root}>
       <CardHeader className={classes.header}

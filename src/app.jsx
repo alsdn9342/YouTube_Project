@@ -12,6 +12,7 @@ import History from './components/sideNav/history/history';
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [sideNav, setSideNav] = useState(Boolean);
   
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -28,6 +29,10 @@ function App({youtube, authService}) {
     setSelectedVideo(reset);
   }
 
+  const clickSideNav = reset => {
+    setSideNav(reset);
+  }
+
   useEffect(() => {
     youtube.mostPopular()
     .then(videos => setVideos(videos));
@@ -42,12 +47,9 @@ function App({youtube, authService}) {
            <Login authService = {authService} />
          </Route>
          <Route path="/youtube">
-         <Nav_bar onSearch= {search} clickToMain = {clickToMain} authService = {authService} />
-        
+         <Nav_bar onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}}/>
          <section className = {styles.content}>
-         <div>
-             <SideNav clickToMain = {clickToMain}/>
-           </div>
+         {sideNav === true && <SideNav clickToMain = {clickToMain} />}
           {selectedVideo && (
             <div className={styles.detail}>
               <Video_detail video={selectedVideo} />
@@ -59,12 +61,10 @@ function App({youtube, authService}) {
          </section>
          </Route>
          <Route exact path="/history">
-         <Nav_bar onSearch= {search} clickToMain = {clickToMain} authService = {authService} />
+         <Nav_bar onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}} />
          <section className = {styles.content}>
-         <div>
-             <SideNav clickToMain = {clickToMain}/>
-           </div>
-           <div>
+         {sideNav === true && <SideNav clickToMain = {clickToMain} />}
+           <div >
             <History />
            </div>
          </section>

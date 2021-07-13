@@ -1,7 +1,11 @@
+@value makerGrey, makerWheat from './common/colors.css';
+
 .content {
   display: flex;
+  flex-direction: row;
   width: 100vw;
   height: 100vh;
+  margin-top: 5em;
 }
 
 .detail {
