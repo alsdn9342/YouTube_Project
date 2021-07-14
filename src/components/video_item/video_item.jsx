@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const VideoItem = ({video, video:{snippet}, onVideoClick}) =>  {
+ const VideoItem = ({key, video, video:{snippet}, onVideoClick}) =>  {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

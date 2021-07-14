@@ -8,6 +8,7 @@ import Video_detail from './components/video_detail/video_detail';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
 import History from './components/sideNav/history/history';
+import Axios from 'axios';
 
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
@@ -16,17 +17,30 @@ function App({youtube, authService}) {
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
-  }
+    addVideoToHistory(video);
+  } 
 
+  const addVideoToHistory = (selectedVideo) => {
+   
+    Axios.post("http://localhost:8091/api/add", {
+      id : selectedVideo.id,
+      thumnails_default: selectedVideo.snippet.thumbnails.default.url,
+      channel_title: selectedVideo.snippet.channelTitle,
+      thumnails_medium : selectedVideo.snippet.thumbnails.medium.url,
+      title : selectedVideo.snippet.title,
+      description : selectedVideo.snippet.description
+    }).then(() => {
+     // console.log('success');
+    })
+  }
+ 
 
   const search = useCallback(query => {
-    console.log(query);
     youtube
     .search(query)
     .then(videos => setVideos(videos));
   },[]);
   
-  console.log(videos);
   const resetVideos = () => {
     youtube.mostPopular()
     .then(videos => setVideos(videos));
