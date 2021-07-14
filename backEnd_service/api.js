@@ -31,6 +31,13 @@ router.route('/add').post((req, res) => {
     })
 })
 
+router.route('/delete').delete((req, res) => {
+    let video = {... req.body}
+    dboperations.deleteVideo(video).then(result => {
+        res.status(201).json(result);
+    })
+})
+
 
 let port = process.env.PORT || 8091;
 app.listen(port);

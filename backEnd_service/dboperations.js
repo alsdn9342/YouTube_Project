@@ -32,7 +32,22 @@ async function addVideo(video){
     }
 }
 
+async function deleteVideo(video){
+    try {
+        let pool = await sql.connect(config);
+        let deleteVideo = await pool.request()
+        .input('id', sql.VarChar, video.id)
+        .execute('DeleteVideo');
+
+        return deleteVideo.recordsets;
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getVideos : getVideos,
-    addVideo : addVideo
+    addVideo : addVideo,
+    deleteVideo : deleteVideo
 }
