@@ -9,8 +9,9 @@ By using YouTube APIs, it dynamically retrieves the most popular vidoes and func
 ## Technology stacks
 >
 > ***FrontEnd:*** **React**, **material-ui**, **styled-components**, **react-router** for navBar based on **Responsive App**, **Firebase** for Authentication, **YouTube API**
+>             , **Axios**
 > 
-> ***BakcEnd:***  **Node.js**, **RESTful APIs**
+> ***BakcEnd:***  **Node.js**, **RESTful APIs**, **Express**, **body-parser**, **cors**, **nodemon**, **mssql**
 >
 
 
