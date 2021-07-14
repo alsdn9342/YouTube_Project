@@ -24,6 +24,13 @@ router.route('/videos').get((resquest, response) => {
     })
 })
 
+router.route('/add').post((req, res) => {
+    let video = {... req.body}
+    dboperations.addVideo(video).then(result => {
+        res.status(201).json(result);
+    })
+})
+
 
 let port = process.env.PORT || 8091;
 app.listen(port);

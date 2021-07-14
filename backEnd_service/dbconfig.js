@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const config = {
-    user: 'minwoo',
+    user: process.env.REACT_APP_SSMS_USER,
     password: process.env.REACT_APP_SSMS_PASSWORD,
     server: 'DESKTOP-O2AJ696',
     database: 'YouTubeAPI',

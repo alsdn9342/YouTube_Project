@@ -18,6 +18,7 @@ function App({youtube, authService}) {
     setSelectedVideo(video);
   }
 
+
   const search = useCallback(query => {
     console.log(query);
     youtube
@@ -71,7 +72,7 @@ function App({youtube, authService}) {
          <section className = {styles.content}>
          {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} />}
            <div >
-            <History />
+            <History selectedVideo={selectedVideo} />
            </div>
          </section>
          </Route>
