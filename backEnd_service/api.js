@@ -12,9 +12,16 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
 
+//if to get connected it will show 'middleware'
 router.use((request, response, next) => {
     console.log('middleware');
     next();
+})
+
+router.route('/videos').get((resquest, response) => {
+    dboperations.getVideos().then(result => {
+        response.json(result);
+    })
 })
 
 

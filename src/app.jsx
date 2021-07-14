@@ -24,7 +24,8 @@ function App({youtube, authService}) {
     .search(query)
     .then(videos => setVideos(videos));
   },[]);
-
+  
+  console.log(videos);
   const resetVideos = () => {
     youtube.mostPopular()
     .then(videos => setVideos(videos));

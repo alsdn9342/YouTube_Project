@@ -6,7 +6,8 @@ const config = {
     options: {
         trustedConnection : true, 
         enableArithAbort:true,
-        instancename:'SQLEXPRESS'
+        instancename:'SQLEXPRESS',
+        trustServerCertificate: true
     }
   } 
 

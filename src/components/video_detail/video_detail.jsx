@@ -7,10 +7,10 @@ const Video_detail = ({video, video:{snippet}}) => (
         type="text/html"
         title="youtube video player" 
         width="100%" 
-        height="500"
+        height="700"
         src={`https://www.youtube.com/embed/${video.id}`}
         frameBorder="0" 
-        allowFullscreen>
+        allowFullscreen= "true">
         </iframe>
         <h2>
             {video.snippet.title}

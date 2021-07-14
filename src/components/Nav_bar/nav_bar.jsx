@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef} from 'react';
+import React, { useEffect, useRef} from 'react';
 import { useHistory } from 'react-router-dom';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';

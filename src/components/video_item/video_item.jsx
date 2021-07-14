@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -10,12 +10,9 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import styles from './video_item.module.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const VideoItem = ({video, video:{snippet}, onVideoClick, display}) =>  {
-  const displayType = display === 'list' ? styles.list : styles.grid;
+ const VideoItem = ({video, video:{snippet}, onVideoClick}) =>  {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -59,8 +55,8 @@ const useStyles = makeStyles((theme) => ({
     <Card className={classes.root}>
       <CardHeader className={classes.header}
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-           <img src={snippet.thumbnails.default.url} /> 
+          <Avatar aria-label="avartar" className={classes.avatar}>
+           <img src={snippet.thumbnails.default.url} alt='avartar' /> 
           </Avatar>
         }
        
