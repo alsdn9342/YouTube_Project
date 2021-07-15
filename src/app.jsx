@@ -89,7 +89,7 @@ function App({youtube, authService}) {
          <Route path="/youtube">
          <Nav_bar  resetVideos={resetVideos} onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}}/>
          <section className = {styles.content}>
-         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} />}
+         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} selectHistoryVideo = {selectHistoryVideo} />}
           {selectedVideo && (
             <div className={styles.detail}>
               <Video_detail video={selectedVideo} />
