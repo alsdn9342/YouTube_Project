@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './video_detail.module.css'
-const Video_detail = ({video, video:{snippet}}) => (
-    <section className={styles.detail}>
+const Video_detail = ({video}) => {
+    
+
+    return (
+        <section className={styles.detail}>
         <iframe
         className={styles.video}  
         type="text/html"
@@ -13,14 +16,15 @@ const Video_detail = ({video, video:{snippet}}) => (
         allowFullscreen= "true">
         </iframe>
         <h2>
-            {video.snippet.title}
+            {video.title}
         </h2>
         <h3>
-            {snippet.channelTitle}
+            {video.channel_title}
         </h3>
-        <pre className={styles.description}>{snippet.description}</pre>
-
+        <pre className={styles.description}>{video.description}</pre>
     </section>
     );
+    
+    };
 
 export default Video_detail;

@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SideNav = ({clickToMain, resetVideos}) => {
+const SideNav = ({clickToMain, resetVideos, selectHistoryVideo}) => {
   
   const history = useHistory();
   const classes = useStyles();
@@ -98,6 +98,7 @@ const SideNav = ({clickToMain, resetVideos}) => {
     
   const goToHistory = () => {
             history.push('/history');
+            selectHistoryVideo(null);
         }
 
   return (

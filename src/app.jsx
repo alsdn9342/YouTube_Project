@@ -9,16 +9,24 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
 import History from './components/sideNav/history/history';
 import Axios from 'axios';
+import History_list from './components/history_list/history_list';
 
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
+  const [videoHistory, setVideoHistory] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedHistoryVideo, setSelectedHistoryVideo] = useState(null);
   const [sideNav, setSideNav] = useState(Boolean);
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
     addVideoToHistory(video);
-  } 
+  }
+  
+  const selectHistoryVideo = (video) => {
+    setSelectedHistoryVideo(video);
+  }
+  
 
   const addVideoToHistory = (selectedVideo) => {
    
@@ -30,7 +38,7 @@ function App({youtube, authService}) {
       title : selectedVideo.snippet.title,
       description : selectedVideo.snippet.description
     }).then(() => {
-     // console.log('success');
+      console.log('success');
     })
   }
  
@@ -60,6 +68,17 @@ function App({youtube, authService}) {
   }, [youtube]);
 
 
+  useEffect(() => {
+    fetch('http://localhost:8091/api/videos')
+    .then(res => {
+      return res.json()
+    })
+    .then(video => {
+      setVideoHistory(video);
+    })
+  },[]);
+
+
   return(
     <div className = {styles.app}>
       <BrowserRouter>
@@ -82,11 +101,16 @@ function App({youtube, authService}) {
          </section>
          </Route>
          <Route exact path="/history">
-         <Nav_bar onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}} />
+         <Nav_bar resetVideos={resetVideos} onSearch= {search} clickToMain = {clickToMain} sideNav={sideNav} clickSideNav={clickSideNav} authService = {authService} style={{zIndex:2}} />
          <section className = {styles.content}>
-         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} />}
-           <div >
-            <History selectedVideo={selectedVideo} />
+         {sideNav === true && <SideNav clickToMain = {clickToMain} resetVideos={resetVideos} selectHistoryVideo = {selectHistoryVideo} />}
+         {selectedHistoryVideo && (
+            <div className={styles.detail}>
+              <Video_detail video={selectedHistoryVideo} />
+            </div>
+           )}
+           <div className={styles.list} >
+            <History_list videoHistory={videoHistory} onVideoClick = {selectHistoryVideo} display={selectedVideo ? 'list':'grid'}  />
            </div>
          </section>
          </Route>
