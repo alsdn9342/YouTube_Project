@@ -158,7 +158,7 @@ console.log('YouTube API is running at ' + port);
 # Detail
 
 ## Authentication 
-> Login with Google or Github account through Firebase *Authentication API*
+> ### Login with Google or Github account through Firebase *Authentication API*
 > 
 ![login](https://user-images.githubusercontent.com/65743649/125398800-ba287c80-e3ea-11eb-991e-4edc01d4a180.JPG)
 ```js
