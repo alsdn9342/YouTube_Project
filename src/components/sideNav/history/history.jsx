@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const History = ({video, onVideoClick}) =>  {
-  console.log(video);   
+ const History = ({video, onVideoClick}) =>  { 
    
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);

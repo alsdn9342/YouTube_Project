@@ -13,7 +13,7 @@ const Video_detail = ({video}) => {
         height="700"
         src={`https://www.youtube.com/embed/${video.id}`}
         frameBorder="0" 
-        allowFullscreen= "true">
+        allowFullScreen= "true">
         </iframe>
         <h2>
             {video.title}

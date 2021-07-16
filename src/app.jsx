@@ -23,6 +23,7 @@ function App({youtube, authService}) {
     addVideoToHistory(video);
   }
   
+
   const selectHistoryVideo = (video) => {
     setSelectedHistoryVideo(video);
   }
@@ -38,6 +39,7 @@ function App({youtube, authService}) {
       title : selectedVideo.snippet.title,
       description : selectedVideo.snippet.description
     }).then(() => {
+      setVideoHistory(selectedVideo);
       console.log('success');
     })
   }
@@ -76,7 +78,7 @@ function App({youtube, authService}) {
     .then(video => {
       setVideoHistory(video);
     })
-  },[]);
+  },[videoHistory]);
 
 
   return(
