@@ -211,18 +211,22 @@ export default Login;
 ## Home page
 > ### the most popular videos through **YouTube API**
 
-![homePage](https://user-images.githubusercontent.com/65743649/125399804-0d4eff00-e3ec-11eb-9563-23254a042b40.JPG)
+![Home](https://user-images.githubusercontent.com/65743649/125926782-601c5ecd-9b93-424b-9b2c-faac74d5be90.JPG)
+
 
 
 >
 > #### When to search 'FrontEnd Developer' it shows relevant videos among the most popular videos.
 
-![Search](https://user-images.githubusercontent.com/65743649/125400344-be559980-e3ec-11eb-8e17-49e4feb0fa54.JPG)
+![Search](https://user-images.githubusercontent.com/65743649/125926946-ae1aa0e1-f8d8-4717-9c0a-6ae449886f2b.JPG)
+
 
 
 ## History page
 > ### Once a user clicks videos in Home page they will be archieved in MS SQL by poping up in History page.
-![history](https://user-images.githubusercontent.com/65743649/125809234-4bc638ae-d123-4939-b07d-71078e511553.JPG)
+
+![history](https://user-images.githubusercontent.com/65743649/125927045-35e50927-460b-492c-8e74-d0bcbedb5ac0.JPG)
+
 
 
 
