@@ -101,6 +101,20 @@ const SideNav = ({clickToMain, resetVideos, selectHistoryVideo}) => {
             selectHistoryVideo(null);
         }
 
+  const addBackgroundColor = (index)=> {
+  const target =  document.getElementById(`listItem${index}`);
+  target.style.backgroundColor = 'grey';
+  }
+
+  const resetBackgroundColor = (index1, index2) => {
+
+    const target1 =  document.getElementById(`listItem${index1}`);
+    const target2 =  document.getElementById(`listItem${index2}`);
+    target1.style.backgroundColor = null;
+    target2.style.backgroundColor = null;
+  }
+
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -131,12 +145,21 @@ const SideNav = ({clickToMain, resetVideos, selectHistoryVideo}) => {
         </div>
         <List>
           {['Home', 'History', 'My favorite'].map((text, index) => (
-            <ListItem button key={index} 
+            <ListItem id={'listItem'+index} button key={index} 
                 onClick={()=>{
                 if(index === 0){
-                  goToHome();  
+                  resetBackgroundColor(1, 2);
+                  addBackgroundColor(index);
+                  goToHome();
                 } 
                 else if(index === 1){
+                  resetBackgroundColor(0, 2);
+                  addBackgroundColor(index);
+                  goToHistory();  
+                }
+                else if(index === 2){
+                  resetBackgroundColor(0, 1);
+                  addBackgroundColor(index);
                   goToHistory();
                 }}}>
                <ListItemIcon> 
