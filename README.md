@@ -223,7 +223,7 @@ export default Login;
 
 
 ## History page
-> ### Once a user clicks videos in Home page they will be archieved in MS SQL by poping up in History page.
+> ### Once a user clicks videos in Home page they will be archived in MS SQL by poping up in History page.
 
 ![history](https://user-images.githubusercontent.com/65743649/125927045-35e50927-460b-492c-8e74-d0bcbedb5ac0.JPG)
 
