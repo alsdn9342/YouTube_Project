@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
   header: {
     color: 'black',
   },
+  deleteBtn: {
+    width:'5px',
+    height:'5px',
+  },
 }));
 
  const History = ({video, onVideoClick}) =>  { 
@@ -53,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
   };
 
   return (
+    <>
     <Card className={classes.root}>
       <CardHeader className={classes.header}
         avatar={
@@ -60,8 +66,12 @@ const useStyles = makeStyles((theme) => ({
            <img src={video.thumnails_default} alt='avartar' /> 
           </Avatar>
         }
-       
         title= {video.channel_title}
+        action={
+          <IconButton aria-label="settings">
+              <HighlightOffRoundedIcon />
+          </IconButton>
+        }
       />
       <CardMedia onClick={() => onVideoClick(video)}
         className={classes.media}
@@ -99,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
         </CardContent>
       </Collapse>
     </Card>
+    </>
   );
 }
 

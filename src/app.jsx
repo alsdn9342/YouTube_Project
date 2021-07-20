@@ -7,9 +7,9 @@ import styles from './app.module.css';
 import Video_detail from './components/video_detail/video_detail';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
-import History from './components/sideNav/history/history';
 import Axios from 'axios';
 import History_list from './components/history_list/history_list';
+import {HighlightOffOutlinedIcon as DeleteBtn} from '@material-ui/icons/HighlightOffOutlined';
 
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
@@ -112,7 +112,7 @@ function App({youtube, authService}) {
             </div>
            )}
            <div className={styles.list} >
-            <History_list videoHistory={videoHistory} onVideoClick = {selectHistoryVideo} display={selectedVideo ? 'list':'grid'}  />
+            <History_list videoHistory={videoHistory} onVideoClick = {selectHistoryVideo} display={selectedVideo ? 'list':'grid'}/>
            </div>
          </section>
          </Route>
