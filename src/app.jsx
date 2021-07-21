@@ -9,7 +9,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
 import Axios from 'axios';
 import History_list from './components/history_list/history_list';
-import {HighlightOffOutlinedIcon as DeleteBtn} from '@material-ui/icons/HighlightOffOutlined';
+
 
 function App({youtube, authService}) {
   const [videos, setVideos] = useState([]);
@@ -30,7 +30,7 @@ function App({youtube, authService}) {
   
 
   const addVideoToHistory = (selectedVideo) => {
-   
+
     Axios.post("http://localhost:8091/api/add", {
       id : selectedVideo.id,
       thumnails_default: selectedVideo.snippet.thumbnails.default.url,
@@ -39,9 +39,20 @@ function App({youtube, authService}) {
       title : selectedVideo.snippet.title,
       description : selectedVideo.snippet.description
     }).then(() => {
-      setVideoHistory(selectedVideo);
       console.log('success');
     })
+  }
+
+  const deleteVideoInHistory = (selectedVideo) => {
+   
+    console.log(selectedVideo.id);
+     Axios.delete("http://localhost:8091/api/delete",{
+     body:{
+      "id" : selectedVideo.id   
+     }
+     }).then(() => {
+      console.log('successfully deleted!');
+     })
   }
  
 
@@ -112,7 +123,7 @@ function App({youtube, authService}) {
             </div>
            )}
            <div className={styles.list} >
-            <History_list videoHistory={videoHistory} onVideoClick = {selectHistoryVideo} display={selectedVideo ? 'list':'grid'}/>
+            <History_list videoHistory={videoHistory} onVideoClick = {selectHistoryVideo} display={selectedVideo ? 'list':'grid'} deleteVideoInHistory={deleteVideoInHistory}/>
            </div>
          </section>
          </Route>

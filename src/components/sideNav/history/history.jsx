@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- const History = ({video, onVideoClick}) =>  { 
+ const History = ({video, onVideoClick, deleteVideoInHistory}) =>  { 
    
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
         title= {video.channel_title}
         action={
           <IconButton aria-label="settings">
-              <HighlightOffRoundedIcon />
+              <HighlightOffRoundedIcon onClick={() => deleteVideoInHistory(video)} />
           </IconButton>
         }
       />
