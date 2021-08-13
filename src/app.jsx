@@ -47,10 +47,10 @@ function App({youtube, authService}) {
    
     console.log(selectedVideo.id);
      Axios.delete("http://localhost:8091/api/delete",{
-     body:{
-      "id" : selectedVideo.id   
-     }
-     }).then(() => {
+      data: { 
+        id: selectedVideo.id
+      }
+    }).then(() => {
       console.log('successfully deleted!');
      })
   }
