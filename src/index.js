@@ -5,12 +5,20 @@ import App from './app';
 import reportWebVitals from './reportWebVitals';
 import Youtube from './service/youtube';
 import AuthService from './service/auth_service';
+import { createStore } from 'redux';
+import allReducers from './reducers';
+import { Provider } from 'react-redux';
 
 const authService = new AuthService();
 const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY);
+const store = createStore(allReducers, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
 ReactDOM.render(
   <React.StrictMode>
-    <App youtube={youtube} authService={authService}/>
+    <Provider store={store}>
+     <App youtube={youtube} authService={authService}/>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

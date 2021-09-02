@@ -9,21 +9,26 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
 import Axios from 'axios';
 import History_list from './components/history_list/history_list';
+import { useDispatch, useSelector } from 'react-redux';
+import {setVideos_redux} from './actions'
 
 
 function App({youtube, authService}) {
+  const dispatch = useDispatch();
+  const videosRedux = useSelector(state => state.videos);
   const [videos, setVideos] = useState([]);
   const [videoHistory, setVideoHistory] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedHistoryVideo, setSelectedHistoryVideo] = useState(null);
   const [sideNav, setSideNav] = useState(Boolean);
 
+  //console.log(videosRedux);
+
   const selectVideo = (video) => {
     setSelectedVideo(video);
     addVideoToHistory(video);
   }
   
-
   const selectHistoryVideo = (video) => {
     setSelectedHistoryVideo(video);
   }
@@ -45,7 +50,6 @@ function App({youtube, authService}) {
 
   const deleteVideoInHistory = (selectedVideo) => {
    
-    console.log(selectedVideo.id);
      Axios.delete("http://localhost:8091/api/delete",{
       data: { 
         id: selectedVideo.id
@@ -77,8 +81,11 @@ function App({youtube, authService}) {
 
   useEffect(() => {
     youtube.mostPopular()
-    .then(videos => setVideos(videos));
-  }, [youtube]);
+    .then(videos => {
+      setVideos(videos)
+      dispatch(setVideos_redux(videos)) 
+    });
+  }, [videos]);
 
 
   useEffect(() => {
