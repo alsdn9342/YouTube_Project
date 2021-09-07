@@ -22,7 +22,8 @@ function App({youtube, authService}) {
   const [selectedHistoryVideo, setSelectedHistoryVideo] = useState(null);
   const [sideNav, setSideNav] = useState(Boolean);
 
-  //console.log(videosRedux);
+  console.log(videosRedux);
+  console.log(videos);
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -44,6 +45,7 @@ function App({youtube, authService}) {
       title : selectedVideo.snippet.title,
       description : selectedVideo.snippet.description
     }).then(() => {
+      retrieveHistory();
       console.log('success');
     })
   }
@@ -55,6 +57,7 @@ function App({youtube, authService}) {
         id: selectedVideo.id
       }
     }).then(() => {
+      retrieveHistory();
       console.log('successfully deleted!');
      })
   }
@@ -85,10 +88,11 @@ function App({youtube, authService}) {
       setVideos(videos)
       dispatch(setVideos_redux(videos)) 
     });
-  }, [videos]);
 
+    retrieveHistory()
+  }, []);
 
-  useEffect(() => {
+  const retrieveHistory = () => {
     fetch('http://localhost:8091/api/videos')
     .then(res => {
       return res.json()
@@ -96,7 +100,7 @@ function App({youtube, authService}) {
     .then(video => {
       setVideoHistory(video);
     })
-  },[videoHistory]);
+  }
 
 
   return(
