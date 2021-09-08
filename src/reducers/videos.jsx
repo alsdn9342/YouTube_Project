@@ -1,7 +1,9 @@
-const videoReducer = (state = null, action) => {
+const initialState = []
+
+const videoReducer = (state = initialState, action) => {
     switch(action.type){
         case 'SETVIDEOS':
-            return action.payload
+            return {...state, videos:action.payload}
         default:
             return state;
     }

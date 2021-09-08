@@ -9,21 +9,21 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import SideNav from './components/sideNav/sideNav';
 import Axios from 'axios';
 import History_list from './components/history_list/history_list';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import {setVideos_redux} from './actions'
+import { Store } from '@material-ui/icons';
 
 
 function App({youtube, authService}) {
   const dispatch = useDispatch();
-  const videosRedux = useSelector(state => state.videos);
+  const videosRedux = useSelector(state => state.data.videos);
   const [videos, setVideos] = useState([]);
   const [videoHistory, setVideoHistory] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedHistoryVideo, setSelectedHistoryVideo] = useState(null);
   const [sideNav, setSideNav] = useState(Boolean);
 
-  console.log(videosRedux);
-  console.log(videos);
+ // console.log(videosRedux); 
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -34,7 +34,6 @@ function App({youtube, authService}) {
     setSelectedHistoryVideo(video);
   }
   
-
   const addVideoToHistory = (selectedVideo) => {
 
     Axios.post("http://localhost:8091/api/add", {
@@ -66,12 +65,18 @@ function App({youtube, authService}) {
   const search = useCallback(query => {
     youtube
     .search(query)
-    .then(videos => setVideos(videos));
+    .then(videos => {
+      setVideos(videos)
+      dispatch(setVideos_redux(videos))
+    });
   },[]);
   
   const resetVideos = () => {
     youtube.mostPopular()
-    .then(videos => setVideos(videos));
+    .then(videos => {
+      setVideos(videos)
+      dispatch(setVideos_redux(videos))
+    });
   }
   
   const clickToMain = reset => {
@@ -82,18 +87,19 @@ function App({youtube, authService}) {
     setSideNav(reset);
   }
 
-  useEffect(() => {
-    youtube.mostPopular()
+  useEffect( async() => {
+   await youtube.mostPopular()
     .then(videos => {
       setVideos(videos)
+      console.log('render1')
       dispatch(setVideos_redux(videos)) 
+      console.log('render2')
     });
-
     retrieveHistory()
   }, []);
 
-  const retrieveHistory = () => {
-    fetch('http://localhost:8091/api/videos')
+  const retrieveHistory = async () => {
+   await fetch('http://localhost:8091/api/videos')
     .then(res => {
       return res.json()
     })
@@ -101,7 +107,6 @@ function App({youtube, authService}) {
       setVideoHistory(video);
     })
   }
-
 
   return(
     <div className = {styles.app}>
